@@ -28,7 +28,8 @@ impl Simulation {
             root: Cell::new([0u8; 32])
         };
         self.execution_environments.push(execution_environment);
-        self.execution_environments.len()
+        let index = self.execution_environments.len()-1;
+        return index;
     }
 
     pub fn create_shard_block(&self, index: usize, txs: Vec<Vec<u8>>) {
