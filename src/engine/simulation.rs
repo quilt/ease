@@ -21,11 +21,11 @@ impl Simulation {
         }
     }
 
-    pub fn create_execution_environment(&mut self, code: Vec<u8>, state: Vec<u8>) -> usize {
+    pub fn create_execution_environment(&mut self, code: Vec<u8>, state: Vec<u8>, root: [u8; 32]) -> usize {
         let execution_environment = Execution_Environment {
             code: code,
             state: state,
-            root: Cell::new([0u8; 32])
+            root: Cell::new(root)
         };
         self.execution_environments.push(execution_environment);
         let index = self.execution_environments.len()-1;

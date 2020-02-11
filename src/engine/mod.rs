@@ -13,8 +13,8 @@ impl Engine {
     }
 
     /// Deploy EE code onchain
-    pub fn deploy(&mut self, code: Vec<u8>, state: Vec<u8>) -> usize{
-        self.simulation.create_execution_environment(code,state)
+    pub fn deploy(&mut self, code: Vec<u8>, state: Vec<u8>, root: [u8; 32]) -> usize{
+        self.simulation.create_execution_environment(code,state,root)
     }
 
     /// Send tx(s) to be run onchain
