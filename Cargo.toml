@@ -6,4 +6,5 @@ edition = "2018"
 
 [dependencies]
 ewasm = "0.2.3"
+byteorder = "1.3.4"
 
