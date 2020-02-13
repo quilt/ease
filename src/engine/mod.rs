@@ -28,3 +28,9 @@ impl Engine {
         self.simulation.get_execution_environment_root(index)
     }
 }
+
+impl Default for Engine {
+    fn default() -> Self {
+        Self::new()
+    }
+}

@@ -1,18 +1,18 @@
 use std::cell::Cell;
 use std::mem::transmute;
 extern crate byteorder;
-use byteorder::{ByteOrder, LittleEndian, WriteBytesExt};
+use byteorder::{LittleEndian, WriteBytesExt};
 use ewasm::{Execute, RootRuntime};
 use std::convert::TryFrom;
 
-pub struct Execution_Environment {
+pub struct ExecutionEnvironment {
     code: Vec<u8>,
     state: Vec<u8>,
     root: Cell<[u8; 32]>,
 }
 
 pub struct Simulation {
-    execution_environments: Vec<Execution_Environment>,
+    execution_environments: Vec<ExecutionEnvironment>,
 }
 
 impl Simulation {
@@ -28,14 +28,13 @@ impl Simulation {
         state: Vec<u8>,
         root: [u8; 32],
     ) -> usize {
-        let execution_environment = Execution_Environment {
-            code: code,
-            state: state,
+        let execution_environment = ExecutionEnvironment {
+            code,
+            state,
             root: Cell::new(root),
         };
         self.execution_environments.push(execution_environment);
-        let index = self.execution_environments.len() - 1;
-        return index;
+        self.execution_environments.len() - 1
     }
 
     pub fn create_shard_block(&self, index: usize, txs: Vec<Vec<u8>>) {
