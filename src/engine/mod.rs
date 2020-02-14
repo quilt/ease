@@ -19,8 +19,8 @@ impl Engine {
     }
 
     /// Send tx(s) to be run onchain
-    pub fn run(&self, index: usize, txs: Vec<Vec<u8>>) {
-        self.simulation.create_shard_block(index, txs);
+    pub fn run(&self, index: usize, txs: Vec<u8>, num_tx: u32) {
+        self.simulation.create_shard_block(index, txs, num_tx);
     }
 
     /// Get onchain state root
