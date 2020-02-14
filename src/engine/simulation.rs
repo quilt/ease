@@ -37,15 +37,13 @@ impl Simulation {
         self.execution_environments.len() - 1
     }
 
-    pub fn create_shard_block(&self, index: usize, txs: Vec<Vec<u8>>) {
+    pub fn create_shard_block(&self, index: usize, txs: Vec<u8>, num_tx: u32) {
         let execution_environment = &self.execution_environments[index];
-        let mut num_tx: Vec<u8> = Vec::new();
-        num_tx
-            .write_u32::<LittleEndian>(u32::try_from(txs.len()).unwrap())
-            .unwrap();
+        let mut num_txs: Vec<u8> = Vec::new();
+        num_txs.write_u32::<LittleEndian>(num_tx).unwrap();
         let data = &[
-            num_tx.to_vec(),
-            txs[0].to_owned(),
+            num_txs,
+            txs.to_owned(),
             execution_environment.state.to_owned(),
         ]
         .concat();
