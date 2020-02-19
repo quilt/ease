@@ -13,7 +13,7 @@ $ brew install rustup
 $ rustup-init
 ```
 
-2. Update and install wasm32
+2. Update and add WebAssembly target
 ```bash
 $ rustup update
 $ rustup target add wasm32-unknown-unknown
