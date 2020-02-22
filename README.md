@@ -5,12 +5,13 @@ This repo contains core libraries needed for your EE to interact with a simulate
 
 Instructions to get started developing EEs for Ethereum 2.0:
 
-1. Install Rust:
+1. Install Rust and cmake:
 
 MacOS:
 ```bash
 $ brew install rustup
 $ rustup-init
+$ brew install cmake
 ```
 
 2. Update and add WebAssembly target
