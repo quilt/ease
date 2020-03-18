@@ -1,5 +1,5 @@
 # Ease
-This repo contains core libraries needed for your EE to interact with a simulated eth2 node.
+This repo contains core libraries needed for your EE to interact with a simulated eth2 node.  Click [here](https://github.com/quilt/ease/raw/master/docs/Ease-Captions.mp4) to download and view a screencast of the demo.
 
 ## Quick Start
 
